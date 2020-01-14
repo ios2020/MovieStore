@@ -7,30 +7,35 @@
 //
 
 import UIKit
-
+import Kingfisher
 class NowPlayingViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource {
     let curruntDate = Date()
     let formatter = DateFormatter()
-    
+    var movies = [Movie]()
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        Jsondata.shareJson.jsonString()
+       movies = Jsondata.shareJson.movies
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return movies.count
         
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:NowPlayingCollectionViewCell = (collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? NowPlayingCollectionViewCell)!
-           //cell.label.text = "Welcome"
-            
-            return cell
+        let moviesRow = movies[indexPath.row]
+        cell.movieName.text = moviesRow.title
+        cell.mvDescription.text = moviesRow.overview
+        cell.releaseDate.text = moviesRow.release_date
+        cell.ratings.text = String(moviesRow.vote_average) + "/10.0"
+        cell.mvImage.kf.indicatorType = .activity
+        cell.mvImage.kf.setImage(with: URL(string: Jsondata.shareJson.imgbaseURL + moviesRow.poster_path), placeholder: #imageLiteral(resourceName: "placeholder"))
+        return cell
     }
     
     //Header
@@ -44,5 +49,12 @@ class NowPlayingViewController: UIViewController, UICollectionViewDelegate,UICol
         return header
     }
     
+    // Saving data into core data
+    func caller()
+    {
+    
+    }
+    
 
 }
+

@@ -10,8 +10,10 @@ import UIKit
 
 class NowPlayingCollectionViewCell: UICollectionViewCell {
     
-
-    @IBOutlet weak var label: UILabel!
-    
+    @IBOutlet weak var movieName: UILabel!
+    @IBOutlet weak var mvDescription: UILabel!
+    @IBOutlet weak var releaseDate: UILabel!
+    @IBOutlet weak var ratings: UILabel!
+    @IBOutlet weak var mvImage: UIImageView!
     
 }
