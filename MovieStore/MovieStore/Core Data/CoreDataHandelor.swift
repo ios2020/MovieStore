@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 class CoreDataHandelor {
-    var movie = [Movie]()
+    var movie = [MovieInfo]()
     static let coreDataCaller = CoreDataHandelor()
     
     func saveData(object: [String:String])

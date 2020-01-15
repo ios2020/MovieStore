@@ -11,5 +11,5 @@ import UIKit
 
 
 struct MoviesModel:Codable {
-    var results:[Movie]
+    var results:[MovieInfo]
 }

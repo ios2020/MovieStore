@@ -11,14 +11,14 @@ import Kingfisher
 class NowPlayingViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource {
     let curruntDate = Date()
     let formatter = DateFormatter()
-    var movies = [Movie]()
+    var movies = [MovieInfo]()
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Jsondata.shareJson.jsonString()
-       movies = Jsondata.shareJson.movies
+        JsonData.shareJson.jsonString(category: "now_playing")
+       movies = JsonData.shareJson.movies
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -34,7 +34,7 @@ class NowPlayingViewController: UIViewController, UICollectionViewDelegate,UICol
         cell.releaseDate.text = moviesRow.release_date
         cell.ratings.text = String(moviesRow.vote_average) + "/10.0"
         cell.mvImage.kf.indicatorType = .activity
-        cell.mvImage.kf.setImage(with: URL(string: Jsondata.shareJson.imgbaseURL + moviesRow.poster_path), placeholder: #imageLiteral(resourceName: "placeholder"))
+        cell.mvImage.kf.setImage(with: URL(string: JsonData.shareJson.imgbaseURL + moviesRow.poster_path), placeholder: #imageLiteral(resourceName: "placeholder"))
         return cell
     }
     

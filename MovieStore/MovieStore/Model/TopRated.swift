@@ -1,13 +1,13 @@
 //
-//  Movies.swift
+//  TopRated.swift
 //  MovieStore
 //
-//  Created by Brahmastra on 14/01/20.
+//  Created by Brahmastra on 15/01/20.
 //  Copyright © 2020 Brahmastra. All rights reserved.
 //
 
 import Foundation
-struct Movie: Codable
+struct TopMovie: Codable
 {
     var title:String
     var overview:String
@@ -17,4 +17,6 @@ struct Movie: Codable
     var id:Int
 }
 
-
+struct TopMoviesModel:Codable {
+    var results:[MovieInfo]
+}
