@@ -38,7 +38,7 @@ class MovieScrollCollection: UICollectionView, UICollectionViewDelegate, UIColle
             cell.popularity.text = "Popularity: " + String(moviesRow.popularity)
             cell.desc.text = moviesRow.overview
             cell.vote_Count.text = "Vote Count: " + String(moviesRow.vote_count)
-            cell.voteAve.text = "Vote Average" + String(moviesRow.vote_average)
+            cell.voteAve.text = "Vote Average: " + String(moviesRow.vote_average)
             cell.poster.kf.setImage(with: URL(string: JsonData.shareJson.imgbaseURL + moviesRow.poster_path), placeholder: #imageLiteral(resourceName: "placeholder"))
             
         return cell

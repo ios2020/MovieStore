@@ -18,9 +18,7 @@ class TopRatedViewController: UIViewController, UITableViewDataSource,UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userLogoUI()
-        
-    
+        SetImageProperty.imageSharedObj.userLogoUI(myImage: userLogo, mycolor: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1))
     }
     
     
@@ -46,10 +44,6 @@ class TopRatedViewController: UIViewController, UITableViewDataSource,UITableVie
        }
     
     }
-    func userLogoUI(){
-        let fillImage = userLogo.image?.withRenderingMode(.alwaysTemplate)
-        userLogo.image = fillImage
-        userLogo.tintColor = #colorLiteral(red: 0, green: 0.4871559739, blue: 0.8467766643, alpha: 1)
-    }
+    
     
 }

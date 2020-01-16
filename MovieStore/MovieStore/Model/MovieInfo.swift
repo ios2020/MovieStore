@@ -9,14 +9,15 @@
 import Foundation
 struct MovieInfo: Codable
 {
+    var id:Int
+    var vote_count:Int
+    var vote_average:Double
+    var popularity:Double
     var title:String
     var overview:String
     var release_date:String
-    var vote_average:Double
     var poster_path:String
-    var id:Int
-    var popularity:Double
-    var vote_count:Int
+    var original_language:String
     
     
 }

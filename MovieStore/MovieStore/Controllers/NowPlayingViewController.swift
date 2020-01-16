@@ -8,17 +8,21 @@
 
 import UIKit
 import Kingfisher
+@available(iOS 13.0, *)
 class NowPlayingViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource {
     let curruntDate = Date()
     let formatter = DateFormatter()
     var movies = [MovieInfo]()
-    
+    var SelectedindexPath:Int = 0
+    @IBOutlet weak var nowPlayingCollectionView: UICollectionView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         JsonData.shareJson.jsonString(category: "now_playing")
        movies = JsonData.shareJson.movies
+        nowPlayingCollectionView.delegate = self
+        nowPlayingCollectionView.dataSource = self
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -27,7 +31,7 @@ class NowPlayingViewController: UIViewController, UICollectionViewDelegate,UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell:NowPlayingCollectionViewCell = (collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? NowPlayingCollectionViewCell)!
+        let cell:NowPlayingCollectionViewCell = (nowPlayingCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? NowPlayingCollectionViewCell)!
         let moviesRow = movies[indexPath.row]
         cell.movieName.text = moviesRow.title
         cell.mvDescription.text = moviesRow.overview
@@ -41,13 +45,32 @@ class NowPlayingViewController: UIViewController, UICollectionViewDelegate,UICol
     //Header
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "NowPlayHeaderCell", for: indexPath) as! NowPlayHeaderCell
-        let fillImage = header.userImg.image?.withRenderingMode(.alwaysTemplate)
-        header.userImg.image = fillImage
-        header.userImg.tintColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
+        SetImageProperty.imageSharedObj.userLogoUI(myImage: header.userImg, mycolor: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1))
         formatter.dateFormat = "EEEE dd MMMM"
         header.dateLabel.text = formatter.string(from: curruntDate).uppercased()
         return header
     }
+    
+    // Passing Data to DetailView Controller
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+       print("Selected Row: ", indexPath.row)
+        SelectedindexPath = indexPath.row
+        performSegue(withIdentifier: "DetailViewController", sender: self)
+    }
+    // LINKED:- above function is linked
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let passData = segue.destination as? DetailViewController {
+            let theMovie = movies[SelectedindexPath]
+            passData.theDesc = theMovie.overview
+            passData.theVoteCount = theMovie.vote_count
+            passData.theLanguage = theMovie.original_language
+            passData.thePopularity = theMovie.popularity
+
+        }
+    }
+    
+    
+    
     
     // Saving data into core data
     func caller()

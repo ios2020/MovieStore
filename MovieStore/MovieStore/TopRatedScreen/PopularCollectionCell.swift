@@ -9,5 +9,11 @@
 import UIKit
 
 class PopularCollectionCell: UICollectionViewCell {
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var releaeDate: UILabel!
+    @IBOutlet weak var popularity: UILabel!
+    @IBOutlet weak var voteCount: UILabel!
+    @IBOutlet weak var poster: UIImageView!
+    
     
 }

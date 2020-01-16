@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,21 +16,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Store" textAlignment="center" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aWc-pQ-aEj">
-                                <rect key="frame" x="99" y="676" width="217" height="48"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movies Store" textAlignment="center" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aWc-pQ-aEj">
+                                <rect key="frame" x="109" y="590" width="217" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="017-pc-m9a"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="OriyaSangamMN-Bold" family="Oriya Sangam MN" pointSize="67"/>
-                                <color key="textColor" red="0.59575510547872179" green="0.16220666379558416" blue="0.094252159037637201" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="67"/>
                                 <color key="highlightedColor" red="1" green="0.95343415369999995" blue="0.46095504520000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </label>
+                            <view alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5gT-Ln-Mah">
+                                <rect key="frame" x="82" y="323" width="250" height="250"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appleLogo" translatesAutoresizingMaskIntoConstraints="NO" id="eg4-dG-oNY">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="250" id="7BJ-JT-hrH"/>
+                                            <constraint firstAttribute="width" constant="250" id="CsR-fQ-3uW"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="eg4-dG-oNY" firstAttribute="centerX" secondItem="5gT-Ln-Mah" secondAttribute="centerX" id="4cY-th-HMt"/>
+                                    <constraint firstAttribute="width" constant="250" id="GTb-IC-ibf"/>
+                                    <constraint firstItem="eg4-dG-oNY" firstAttribute="centerY" secondItem="5gT-Ln-Mah" secondAttribute="centerY" id="aw8-mJ-Jqu"/>
+                                    <constraint firstAttribute="height" constant="250" id="don-tq-j1a"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.4941176471" green="0.22352941179999999" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="aWc-pQ-aEj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="99" id="YEI-H5-HbP"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aWc-pQ-aEj" secondAttribute="trailing" constant="98" id="j0l-1H-HN6"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="aWc-pQ-aEj" secondAttribute="bottom" constant="138" id="tuT-o9-UFz"/>
+                            <constraint firstItem="5gT-Ln-Mah" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="5Kf-Fb-gFM"/>
+                            <constraint firstItem="5gT-Ln-Mah" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="5gI-2k-snF"/>
+                            <constraint firstItem="aWc-pQ-aEj" firstAttribute="top" secondItem="5gT-Ln-Mah" secondAttribute="bottom" constant="17" id="6mb-cl-Knc"/>
+                            <constraint firstItem="aWc-pQ-aEj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="109" id="YEI-H5-HbP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aWc-pQ-aEj" secondAttribute="trailing" constant="88" id="j0l-1H-HN6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -42,4 +60,7 @@
             <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="appleLogo" width="512" height="512"/>
+    </resources>
 </document>
