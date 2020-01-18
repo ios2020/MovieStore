@@ -13,16 +13,34 @@ class NowPlayingViewController: UIViewController, UICollectionViewDelegate,UICol
     let curruntDate = Date()
     let formatter = DateFormatter()
     var movies = [MovieInfo]()
-    var SelectedindexPath:Int = 0
+    var selectedindexPath:Int = 0
+    let myImg = UIImageView()
     @IBOutlet weak var nowPlayingCollectionView: UICollectionView!
-    
+   // let cellScale:CGFloat = 0.9
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        JsonData.shareJson.jsonString(category: "now_playing")
-       movies = JsonData.shareJson.movies
-        nowPlayingCollectionView.delegate = self
         nowPlayingCollectionView.dataSource = self
+        nowPlayingCollectionView.delegate = self
+        //cell Size
+//        let screenSize = UIScreen.main.bounds.size
+//        let cellWidth  = floor(screenSize.width * cellScale)
+//        let cellHeight  = floor(screenSize.height * cellScale)
+//        let insetX = (view.bounds.width - cellWidth) / 2.0
+//        let insetY = (view.bounds.height - cellHeight) / 2.0
+//
+//        let layout = nowPlayingCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        
+//        layout.itemSize = CGSize(width: cellWidth, height: cellHeight)
+//        nowPlayingCollectionView.contentInset = UIEdgeInsets(top: insetY, left: insetX, bottom: insetY, right: insetX)
+         
+        
+        
+        
+        
+        JsonData.shareJson.jsonString(category: "now_playing", page: 1)
+       movies = JsonData.shareJson.movies
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -54,18 +72,22 @@ class NowPlayingViewController: UIViewController, UICollectionViewDelegate,UICol
     // Passing Data to DetailView Controller
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
        print("Selected Row: ", indexPath.row)
-        SelectedindexPath = indexPath.row
-        performSegue(withIdentifier: "DetailViewController", sender: self)
+        selectedindexPath = indexPath.row
+        performSegue(withIdentifier: SegueIdenfier.idenfier.nowPlayScreen, sender: self)
     }
     // LINKED:- above function is linked
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let passData = segue.destination as? DetailViewController {
-            let theMovie = movies[SelectedindexPath]
+            let theMovie = movies[selectedindexPath]
             passData.theDesc = theMovie.overview
             passData.theVoteCount = theMovie.vote_count
             passData.theLanguage = theMovie.original_language
             passData.thePopularity = theMovie.popularity
-
+            passData.theTitle = theMovie.title
+            myImg.kf.indicatorType = .activity
+            myImg.kf.setImage(with: URL(string: JsonData.shareJson.imgbaseURL + theMovie.poster_path), placeholder: #imageLiteral(resourceName: "placeholder"))
+            passData.thePoster = myImg.image
+            
         }
     }
     

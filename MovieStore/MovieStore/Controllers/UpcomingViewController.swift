@@ -12,11 +12,14 @@ class UpcomingViewController: UIViewController,UITableViewDelegate,UITableViewDa
    
     
     @IBOutlet weak var userLogo: UIImageView!
+    var selectedindexPath:Int = 0
+     let myImg = UIImageView()
     var movies = [MovieInfo]()
     override func viewDidLoad() {
+        
         super.viewDidLoad()
 
-                JsonData.shareJson.jsonString(category: "upcoming")
+        JsonData.shareJson.jsonString(category: "upcoming", page: 1)
                 movies = JsonData.shareJson.movies
                 SetImageProperty.imageSharedObj.userLogoUI(myImage: userLogo, mycolor: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1))
     }
@@ -42,5 +45,24 @@ class UpcomingViewController: UIViewController,UITableViewDelegate,UITableViewDa
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 91.5
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+           selectedindexPath = indexPath.row
+         performSegue(withIdentifier: SegueIdenfier.idenfier.upcomingScreen, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         if let passData = segue.destination as? DetailViewController {
+                   let theMovie = movies[selectedindexPath]
+                   passData.theDesc = theMovie.overview
+                   passData.theVoteCount = theMovie.vote_count
+                   passData.theLanguage = theMovie.original_language
+                   passData.thePopularity = theMovie.popularity
+                   passData.theTitle = theMovie.title
+                   myImg.kf.indicatorType = .activity
+                   myImg.kf.setImage(with: URL(string: JsonData.shareJson.imgbaseURL + theMovie.poster_path), placeholder: #imageLiteral(resourceName: "placeholder"))
+                   passData.thePoster = myImg.image
+    }
     }
 }

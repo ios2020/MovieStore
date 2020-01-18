@@ -16,18 +16,22 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var popularity: UILabel!
     @IBOutlet weak var voteCount: UILabel!
     @IBOutlet weak var desc: UILabel!
+    @IBOutlet weak var tittle: UILabel!
+    
     var thePoster:UIImage!
     var theLanguage:String!
     var thePopularity:Double!
     var theVoteCount:Int!
     var theDesc:String!
+    var theTitle:String!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         SetImageProperty.imageSharedObj.userLogoUI(myImage: cancelButtonLogo.imageView!, mycolor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
         
-       // poster.image = thePoster
+        poster.image = thePoster
+        tittle.text = theTitle
         language.text = "Language: " + theLanguage
         popularity.text = "Popularity: " + String(thePopularity) + "%"
         voteCount.text =  "Vote Count: " + String(theVoteCount)
@@ -35,15 +39,14 @@ class DetailViewController: UIViewController {
         
     }
     
-
+    
+    @IBAction func cancelButton(_ sender: Any) {
+        SetImageProperty.imageSharedObj.userLogoUI(myImage: cancelButtonLogo.imageView!, mycolor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        SetImageProperty.imageSharedObj.userLogoUI(myImage: cancelButtonLogo.imageView!, mycolor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
+    }
     
 }
-    extension Double {
-        func toInt() -> Int? {
-            if self >= Double(Int.min) && self < Double(Int.max) {
-                return Int(self)
-            } else {
-                return nil
-            }
-        }
-    }

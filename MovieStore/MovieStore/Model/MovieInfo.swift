@@ -18,7 +18,7 @@ struct MovieInfo: Codable
     var release_date:String
     var poster_path:String
     var original_language:String
-    
+    var backdrop_path:String
     
 }
 

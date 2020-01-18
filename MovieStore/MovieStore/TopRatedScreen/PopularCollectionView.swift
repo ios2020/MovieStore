@@ -10,10 +10,12 @@ import UIKit
 
 class PopularCollectionView: UICollectionView,UICollectionViewDelegate,UICollectionViewDataSource {
      var movies = [MovieInfo]()
+    var selectedindexPath:Int = 0
+    let myImg = UIImageView()
     override func awakeFromNib() {
               self.delegate = self
               self.dataSource = self
-           JsonData.shareJson.jsonString(category: "popular")
+        JsonData.shareJson.jsonString(category: "popular", page: 2)
            movies = JsonData.shareJson.movies
            
           }
@@ -42,5 +44,33 @@ class PopularCollectionView: UICollectionView,UICollectionViewDelegate,UICollect
     
     
     
+    
+}
+// NOTE : - This method can not be implemented here
+
+extension TopRatedViewController:UICollectionViewDelegate {
+   
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+       print("Selected Row: ", indexPath.row)
+        selectedindexPath = indexPath.row
+        performSegue(withIdentifier: SegueIdenfier.idenfier.topRateScreen, sender: self)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+           if let passData = segue.destination as? DetailViewController {
+               let theMovie = movies[selectedindexPath]
+               passData.theDesc = theMovie.overview
+               passData.theVoteCount = theMovie.vote_count
+               passData.theLanguage = theMovie.original_language
+               passData.thePopularity = theMovie.popularity
+               passData.theTitle = theMovie.title
+               myImg.kf.indicatorType = .activity
+               myImg.kf.setImage(with: URL(string: JsonData.shareJson.imgbaseURL + theMovie.poster_path), placeholder: #imageLiteral(resourceName: "placeholder"))
+               passData.thePoster = myImg.image
+               
+           }
+       }
     
 }

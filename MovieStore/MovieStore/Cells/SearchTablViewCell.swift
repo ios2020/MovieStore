@@ -1,29 +1,26 @@
 //
-//  MainTableViewCell.swift
+//  SearchTablViewCell.swift
 //  MovieStore
 //
-//  Created by Brahmastra on 15/01/20.
+//  Created by Brahmastra on 17/01/20.
 //  Copyright © 2020 Brahmastra. All rights reserved.
 //
-// This is My feature cell
 
 import UIKit
 
-class MainTableViewCell: UITableViewCell {
+class SearchTablViewCell: UITableViewCell {
 
-    @IBOutlet weak var topCollectioView: MovieScrollCollection!
-    static let shareObj = MainTableViewCell()
-        var movies = [MovieInfo]()
+    @IBOutlet weak var searchResults: UILabel!
+    @IBOutlet weak var searchLogo: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        topCollectioView.awakeFromNib()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        SetImageProperty.imageSharedObj.userLogoUI(myImage: searchLogo, mycolor: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1))
         // Configure the view for the selected state
     }
-    
+
 }

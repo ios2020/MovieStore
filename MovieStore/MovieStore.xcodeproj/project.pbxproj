@@ -15,6 +15,9 @@
 		6D22DB2423CDC26600B9C38A /* CoreDataHandelor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D22DB2323CDC26600B9C38A /* CoreDataHandelor.swift */; };
 		6D22DB2723CDCB3200B9C38A /* MovieStore+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D22DB2523CDCB3200B9C38A /* MovieStore+CoreDataProperties.swift */; };
 		6D22DB2823CDCB3200B9C38A /* MovieStore+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D22DB2623CDCB3200B9C38A /* MovieStore+CoreDataClass.swift */; };
+		6D2313AD23D1ABA00099CE92 /* SegueIdentifers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2313AC23D1ABA00099CE92 /* SegueIdentifers.swift */; };
+		6D2313AF23D1C0AC0099CE92 /* SearchTablViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2313AE23D1C0AC0099CE92 /* SearchTablViewCell.swift */; };
+		6D2313B123D1EDDB0099CE92 /* SearchDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2313B023D1EDDB0099CE92 /* SearchDetailsViewController.swift */; };
 		6D314B2723CECE320043C72B /* MainTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D314B2623CECE320043C72B /* MainTableView.swift */; };
 		6D314B2923CECEDD0043C72B /* MovieScrollCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D314B2823CECEDD0043C72B /* MovieScrollCollection.swift */; };
 		6D314B2B23CECFD90043C72B /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D314B2A23CECFD90043C72B /* MainTableViewCell.swift */; };
@@ -50,6 +53,9 @@
 		6D22DB2323CDC26600B9C38A /* CoreDataHandelor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHandelor.swift; sourceTree = "<group>"; };
 		6D22DB2523CDCB3200B9C38A /* MovieStore+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MovieStore+CoreDataProperties.swift"; path = "/Users/brahmastra/Desktop/DemoApp/MovieStore/MovieStore/MovieStore/Core Data/MovieStore+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		6D22DB2623CDCB3200B9C38A /* MovieStore+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MovieStore+CoreDataClass.swift"; path = "/Users/brahmastra/Desktop/DemoApp/MovieStore/MovieStore/MovieStore/Core Data/MovieStore+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		6D2313AC23D1ABA00099CE92 /* SegueIdentifers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueIdentifers.swift; sourceTree = "<group>"; };
+		6D2313AE23D1C0AC0099CE92 /* SearchTablViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTablViewCell.swift; sourceTree = "<group>"; };
+		6D2313B023D1EDDB0099CE92 /* SearchDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailsViewController.swift; sourceTree = "<group>"; };
 		6D314B2623CECE320043C72B /* MainTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableView.swift; sourceTree = "<group>"; };
 		6D314B2823CECEDD0043C72B /* MovieScrollCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieScrollCollection.swift; sourceTree = "<group>"; };
 		6D314B2A23CECFD90043C72B /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
@@ -136,9 +142,9 @@
 			isa = PBXGroup;
 			children = (
 				6D314B2623CECE320043C72B /* MainTableView.swift */,
+				6D314B2A23CECFD90043C72B /* MainTableViewCell.swift */,
 				6D314B2823CECEDD0043C72B /* MovieScrollCollection.swift */,
 				6D314B2C23CED0A70043C72B /* MovieScrollCollectionCell.swift */,
-				6D314B2A23CECFD90043C72B /* MainTableViewCell.swift */,
 				6D314B2E23CED7130043C72B /* PopularCell.swift */,
 				6D314B3223CF08CC0043C72B /* PopularCollectionView.swift */,
 				6D314B3423CF09BA0043C72B /* PopularCollectionCell.swift */,
@@ -189,6 +195,7 @@
 				6D35795823CC677E000D997C /* NowPlayingCollectionViewCell.swift */,
 				6D688E3B23CC7EFE00AE8370 /* NowPlayHeaderCell.swift */,
 				6D357ECA23D03B130017F663 /* UpcomingMovieCell.swift */,
+				6D2313AE23D1C0AC0099CE92 /* SearchTablViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -202,6 +209,7 @@
 				6D35795A23CC6829000D997C /* NowPlayingViewController.swift */,
 				6D35795E23CC684E000D997C /* UpcomingViewController.swift */,
 				6D35796023CC6862000D997C /* SearchViewController.swift */,
+				6D2313B023D1EDDB0099CE92 /* SearchDetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -211,6 +219,7 @@
 			children = (
 				6D688E3E23CC9F2300AE8370 /* UIView-Extension.swift */,
 				6DF9620323D0672A00974852 /* SetImageProperty.swift */,
+				6D2313AC23D1ABA00099CE92 /* SegueIdentifers.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -332,13 +341,16 @@
 			files = (
 				6D314B2723CECE320043C72B /* MainTableView.swift in Sources */,
 				6D314B2923CECEDD0043C72B /* MovieScrollCollection.swift in Sources */,
+				6D2313AD23D1ABA00099CE92 /* SegueIdentifers.swift in Sources */,
 				6D35795923CC677E000D997C /* NowPlayingCollectionViewCell.swift in Sources */,
 				6D314B2B23CECFD90043C72B /* MainTableViewCell.swift in Sources */,
 				6D22DAE323CD7B3600B9C38A /* MovieInfo.swift in Sources */,
 				6D35795B23CC6829000D997C /* NowPlayingViewController.swift in Sources */,
 				6D314B2F23CED7130043C72B /* PopularCell.swift in Sources */,
 				6D35796123CC6862000D997C /* SearchViewController.swift in Sources */,
+				6D2313B123D1EDDB0099CE92 /* SearchDetailsViewController.swift in Sources */,
 				6D688E3C23CC7EFE00AE8370 /* NowPlayHeaderCell.swift in Sources */,
+				6D2313AF23D1C0AC0099CE92 /* SearchTablViewCell.swift in Sources */,
 				6D357ECB23D03B130017F663 /* UpcomingMovieCell.swift in Sources */,
 				6D22DB2423CDC26600B9C38A /* CoreDataHandelor.swift in Sources */,
 				6D314B3323CF08CC0043C72B /* PopularCollectionView.swift in Sources */,
@@ -504,6 +516,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3ZFC2Q957M;
 				INFOPLIST_FILE = MovieStore/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -522,6 +535,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3ZFC2Q957M;
 				INFOPLIST_FILE = MovieStore/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -11,7 +11,8 @@ import UIKit
 class TopRatedViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
     
     @IBOutlet weak var topRatedTableView: UITableView!
-    
+    var selectedindexPath:Int = 0
+       let myImg = UIImageView()
     @IBOutlet weak var userLogo: UIImageView!
     var movies = [MovieInfo]()
     

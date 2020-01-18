@@ -5,6 +5,8 @@
 //  Created by Brahmastra on 15/01/20.
 //  Copyright © 2020 Brahmastra. All rights reserved.
 //
+//UNUSED :: Marked
+
 
 import UIKit
 
@@ -15,7 +17,7 @@ class MovieScrollCollection: UICollectionView, UICollectionViewDelegate, UIColle
      override func awakeFromNib() {
            self.delegate = self
            self.dataSource = self
-        JsonData.shareJson.jsonString(category: "top_rated")
+        JsonData.shareJson.jsonString(category: "top_rated", page: 1)
         movies = JsonData.shareJson.movies
       
         
